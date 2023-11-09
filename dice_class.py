@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from random import choice
+from random import randint
 
 @dataclass
 class DiceFactory:
@@ -8,8 +8,7 @@ class DiceFactory:
     save: bool = False
         
     def roll(self):
-        values=[1,2,3,4,5,6]
-        self.value = choice(values)
+        self.value = randint(1,6)
     
     def save(self):
         self.save == True
@@ -25,7 +24,7 @@ def main():
         d2p=get_dice(dice)
         print(f"{'='*21}\n {d2p}\n{'='*21}")
         print(f"Number of rolls: {roll}")
-        dice,score = check_dice(dice,score)    
+        dice, score = check_dice(dice, score)    
         if roll <3:    
             roll_again = input("\nPress 'Y' to roll the dice again: ").lower()
     if score == 0:
@@ -34,7 +33,7 @@ def main():
        print(f"\n{'='*28}\n Final Cargo Value: {score} gold\n{'='*28}\n")    
     return
 
-def check_dice(dice,score):
+def check_dice(dice, score):
     current_roll = []
     current_roll.clear()
     for i in range(5):
@@ -51,9 +50,9 @@ def check_dice(dice,score):
         dice[1].save = True
         
     if 6 in current_roll and 5 in current_roll and 4 in current_roll:
-        score = sum(current_roll)
+        score = sum(current_roll)-15
         print("[4] The Captain has hired a crew!")
-        if score == 27:
+        if score == 12:
             print(f"\nCurrent cargo is worth {score}, thats the largest hual I've ever seen!")
         else:
             print(f"\nCurrent cargo of barrells is worth {score} gold!")
