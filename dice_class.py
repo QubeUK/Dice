@@ -10,7 +10,7 @@ class DiceFactory:
     def roll(self):
         values=[1,2,3,4,5,6]
         self.value = choice(values)
-        
+    
     def save(self):
         self.save == True
 
@@ -23,7 +23,7 @@ def main():
         roll +=1
         roll_dice(dice)
         d2p=get_dice(dice)
-        print("=====================\n",d2p,"\n=====================")
+        print(f"{'='*21}\n {d2p}\n{'='*21}")
         print(f"Number of rolls: {roll}")
         dice,score = check_dice(dice,score)    
         if roll <3:    
@@ -31,7 +31,7 @@ def main():
     if score == 0:
         print(f"\nYou failed to secure as Captain, Ship and Cargo and are left with {score} gold.\n")
     else:
-       print(f"\n============================\nFinal Cargo Value: {score} gold\n============================\n")    
+       print(f"\n{'='*28}\n Final Cargo Value: {score} gold\n{'='*28}\n")    
     return
 
 def check_dice(dice,score):
@@ -71,7 +71,6 @@ def get_dice(dice):
     d2p = ""
     for i in range(5):
         d2p += (f"[{dice[i].value}] ")
-    
     return d2p
 
 def create_dice():        
