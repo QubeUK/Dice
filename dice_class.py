@@ -22,7 +22,8 @@ def main():
     while roll_again == "y" and roll <3:
         roll +=1
         roll_dice(dice)
-        print_dice(dice)        
+        d2p=get_dice(dice)
+        print("=====================\n",d2p,"\n=====================")
         print(f"Number of rolls: {roll}")
         dice,score = check_dice(dice,score)    
         if roll <3:    
@@ -40,7 +41,7 @@ def check_dice(dice,score):
     current_roll.clear()
     for i in range(5):
         current_roll.append(dice[i].value)
-
+    
     if 6 in current_roll:
         print(f"\n[6] A Captain has been found!")
         dice[0].value = 6
@@ -66,14 +67,14 @@ def roll_dice(dice):
     for i in range(5):
         if dice[i].save == False:
             dice[i].roll()
-    return(dice)
+    return dice
 
-def print_dice(dice):
-    print("===================")
+def get_dice(dice):
+    d2p = ""
     for i in range(5):
-        print(f"[{dice[i].value}] ", end="")
-    print("\n===================")
-    return
+        d2p += (f"[{dice[i].value}] ")
+    
+    return d2p
 
 def create_dice():        
     dice=[]
