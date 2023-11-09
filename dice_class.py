@@ -31,9 +31,7 @@ def main():
     if score == 0:
         print(f"\nYou failed to secure as Captain, Ship and Cargo and are left with {score} gold.\n")
     else:
-       print("\n============================")
-       print(f" Final Cargo Value: {score} gold")
-       print("============================\n")
+       print(f"\n============================\nFinal Cargo Value: {score} gold\n============================\n")    
     return
 
 def check_dice(dice,score):
